@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="icon" href="https://bcw.blob.core.windows.net/public/img/9977764104160066">
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/7.0.96/css/materialdesignicons.min.css"
+    integrity="sha512-fXnjLwoVZ01NUqS/7G5kAnhXNXat6v7e3M9PhoMHOTARUMCaf5qNO84r5x9AFf5HDzm3rEZD8sb/n6dZ19SzFA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="assets/style/main.css">
+  <link rel="stylesheet" href="assets/style/style.css">
+  <title>GregsList</title>
+</head>
+
+<body>
+  <!-- SECTION -->
+  <header>
+    <nav class="navbar navbar-dark navbar-expand bg-dark text-light px-2">
+      <a class="navbar-brand" href="#">
+        <img src="https://codeworks.blob.core.windows.net/public/assets/img/cw-mark.png" height="45" alt=""
+          loading="lazy">
+        <span class="ml-2">GregsList</span>
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+        aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <!-- NAVLINKS -->
+        </div>
+      </div>
+      <div class="flex-grow-1 justify-content-end align-items-center d-flex" id="authstate"></div>
+    </nav>
+  </header>
+
+  <!-- SECTION -->
+  <main class="container">
+    <!-- SECTION if you are adding houses, add them here -->
+    <form onsubmit="app.HousesController.createHouseListing()" class="row g-4 bg-white p-4 rounded shadow-sm my-3">
+      <div>
+        <h2>Sale Your House</h2>
+      </div>
+      <div class="col-md-4">
+        <label for="house-year">Year:</label>
+        <input required id="house-year" name="year" type="number" min="1800" max="2024" class="form-control">
+      </div>
+      <div class="col-md-4">
+        <label for="house-bedrooms">Bedrooms:</label>
+        <input required id="house-bedrooms" name="bedrooms" type="number" min="1" , max="10" class="form-control">
+      </div>
+      <div class="col-md-4">
+        <label for="house-bathrooms">Bathrooms:</label>
+        <input required id="house-bathrooms" name="bathrooms" type="number" min="1" max="10" class="form-control">
+      </div>
+      <div class="col-md-4">
+        <label for="house-sqft">Sqft.</label>
+        <input required id="house-sqft" name="sqft" type="number" min="1" max="100000" class="form-control">
+      </div>
+      <div class="col-md-8">
+        <label for="house-description">Description:</label>
+        <input required id="house-description" name="description" type="text" class="form-control">
+      </div>
+      <div class="col-md-4">
+        <label for="house-imgUrl">Picture URL</label>
+        <input required id="house-imgUrl" name="imgUrl" type="url" class="form-control">
+      </div>
+      <div class="col-md-8">
+        <label for="house-price">Price $0 - $10,000,000</label>
+        <input required id="house-price" name="price" type="range" min="0" max="10000000" step="25000"
+          class="form-control">
+      </div>
+      <div class="text-end">
+        <button class="btn btn-primary" type="submit">Submit</button>
+      </div>
+
+    </form>
+    <!-- SECTION car cards go here -->
+    <section id="house-listings" class="row">
+
+      <!-- <div class="col-md-4">
+        <div class="card shadow-sm">
+          <img class="card-img p-2"
+            src="https://plus.unsplash.com/premium_photo-1664304400278-8152cba3da20?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8amFndWFyfGVufDB8fDB8fHww"
+            alt="">
+          <div class="card-body">
+            <p class="text-center fw-bold">
+              Jaguar XE 2017
+            </p>
+            <p class="mb-0">
+              black
+            </p>
+          </div>
+        </div>
+      </div> -->
+
+    </section>
+
+    <!-- --- -->
+    <!-- SECTION car form -->
+    <!-- <form onsubmit="app.CarsController.createCarListing()" class="row g-4 bg-white p-4 rounded shadow-sm my-3">
+      <div>
+        <h2>List Your Car</h2>
+      </div>
+      <div class="col-md-4">
+        <label for="car-make">Make</label>
+        <input required id="car-make" name="make" type="text" minlength="2" maxlength="25" class="form-control">
+      </div>
+      <div class="col-md-4">
+        <label for="car-model">Model</label>
+        <input required id="car-model" name="model" type="text" minlength="1" , maxlength="25" class="form-control">
+      </div>
+      <div class="col-md-4">
+        <label for="car-year">Year</label>
+        <input required id="car-year" name="year" type="number" min="1885" max="2025" class="form-control">
+      </div>
+      <div class="col-md-6">
+        <label for="car-imgUrl">Picture</label>
+        <input required id="car-imgUrl" name="imgUrl" type="url" class="form-control">
+      </div>
+      <div class="col-md-6">
+        <label for="car-color">Color</label>
+        <input required id="car-color" name="color" type="color" class="form-control">
+      </div>
+      <div class="col-md-12">
+        <label for="car-mileage">Mileage</label>
+        <input required id="car-mileage" name="mileage" type="range" min="0" max="303000" step="100"
+          class="form-control">
+      </div> -->
+    <!-- <div class="col-md-12">
+        <label for="car-isRunning">Is Running</label>
+        <input id="car-isRunning" name="isRunning" type="checkbox" class="form-checkbox">
+      </div> -->
+    <!-- <div class="text-end">
+        <button class="btn btn-primary" type="submit">Submit</button>
+      </div>
+
+    </form> -->
+    <!-- SECTION car cards go here -->
+    <!-- <section id="car-listings" class="row"> -->
+    <!-- <div class="col-md-4">
+        <div class="card shadow-sm">
+          <img class="card-img p-2"
+            src="https://plus.unsplash.com/premium_photo-1664304400278-8152cba3da20?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8amFndWFyfGVufDB8fDB8fHww"
+            alt="">
+          <div class="card-body">
+            <p class="text-center fw-bold">
+              Jaguar XE 2017
+            </p>
+            <p class="mb-0">
+              black
+            </p>
+          </div>
+        </div>
+      </div> -->
+    <!-- </section> -->
+    <!-- <section id="router-view"></section> -->
+  </main>
+
+  <!-- SECTION -->
+  <footer class="bg-dark text-light">
+    <div class="text-center no-select">
+      <p class="mb-0"><small>Made with 💖 by CodeWorks</small></p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.3.10/dist/sweetalert2.all.min.js"
+    integrity="sha256-hw7v8jZF/rFEdx1ZHepT4D73AFTHLu/P9kEyrNesRyc=" crossorigin="anonymous"></script>
+
+  <script src="app/App.js" type="module"></script>
+</body>
+
+</html>
